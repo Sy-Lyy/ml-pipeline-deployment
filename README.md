@@ -60,7 +60,7 @@ make run-streamlit
 # → http://localhost:8501
 ```
 
-**Or run via Docker:**
+**Run via Docker:**
 
 ```powershell
 # Make sure Docker Desktop is running
