@@ -4,11 +4,11 @@
 install:
 	pip install -r requirements.txt
 
-# 2. Run pytest (Week 3)
+# 2. Run pytest
 test:
 	pytest -q
 
-# 3. Data collection, scraping, cleaning, train and classify (Week 5)
+# 3. Data collection, scraping, cleaning, train and classify
 
 get-data:
 	python src/fetch_data.py
@@ -22,7 +22,7 @@ clean:
 train:
 	python src/classify.py
 
-# 4. Run API server and Streamlit app (Week 6)
+# 4. Run API server and Streamlit app
 
 run-api:
 	.venv\Scripts\python -m uvicorn src.api:app --reload --port 8000
