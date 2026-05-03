@@ -6,7 +6,7 @@ End-to-end reproducible ML pipeline — from data scraping to a Dockerized FastA
 
 ## Overview
 
-A text classification system that scrapes book data, trains a genre classifier, and serves predictions through a REST API — built with reproducibility as a core requirement: pinned dependencies, fixed random seeds, automated testing, and Dockerized local serving.
+A text classification system that scrapes book data, trains a genre classifier, and serves predictions through a REST API — built with reproducibility as a core requirement: pinned dependencies, fixed random seeds, automated testing, and containerized deployment.
 
 ---
 
