@@ -39,13 +39,21 @@ $ curl -X POST "http://localhost:8000/predict" -d '{"text": "the grand design"}'
 
 ## Quick Start
 
-```bash
+```powershell
 # Install dependencies, run tests, run full pipeline
 make all
 
 # Start API
 make run-api
-# → http://localhost:8000
+# → Expected output: "Uvicorn running on http://127.0.0.1:8000"
+
+# Test endpoints (open a new terminal)
+Invoke-RestMethod "http://localhost:8000/health"
+# → {"status": "RMD-OK"}
+
+$body = @{ text = "the grand design" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "http://localhost:8000/predict" -ContentType "application/json" -Body $body
+# → "science"
 
 # Start Streamlit UI
 make run-streamlit
@@ -54,7 +62,8 @@ make run-streamlit
 
 **Or run via Docker:**
 
-```bash
+```powershell
+# Make sure Docker Desktop is running
 docker build -t myapi .
 docker run -p 8000:8000 myapi
 ```
@@ -65,7 +74,7 @@ docker run -p 8000:8000 myapi
 
 ```
 ├── .github/workflows/
-│   └── ci.yml              # GitHub Actions CI
+│   └── ci.yml              # GitHub Actions CI (runs pytest on every push)
 ├── src/
 │   ├── fetch_data.py       # Raw HTML fetching
 │   ├── scrape_books.py     # HTML → CSV parsing
@@ -82,6 +91,7 @@ docker run -p 8000:8000 myapi
 │   └── vectorizer.pkl
 ├── Dockerfile
 ├── Makefile
+├── pytest.ini
 ├── requirements.txt
 └── README.md
 ```
